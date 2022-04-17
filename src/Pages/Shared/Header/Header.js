@@ -34,7 +34,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/login" href="#login">
               Login
             </Nav.Link>
-            <Nav.Link>SomeThing</Nav.Link>
+            <Nav.Link as={Link} to="/register">
+              Register
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -43,20 +45,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// <nav className="navbar">
-//   <header className="container py-3 d-flex justify-content-between">
-//     <div>
-//       <Link to="/">Logo</Link>
-//     </div>
-//     <div className="middle-link w-50 d-flex justify-content-evenly ">
-//       <Link to="/">Home</Link>
-//       <Link to="/about">About</Link>
-//       <Link to="/services">Services</Link>
-//       <Link to="/blogs">Blogs</Link>
-//     </div>
-//     <div>
-//       <Link to="/login">Login</Link>
-//     </div>
-//   </header>
-// </nav>

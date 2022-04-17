@@ -10,6 +10,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import NotFound from "./Pages/NotFound/NotFound";
 import Contact from "./Pages/Contact/Contact";
+import ChekOut from "./Pages/CheckOut/ChekOut";
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/checkout" element={<ChekOut></ChekOut>}></Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }
