@@ -1,5 +1,8 @@
+import { faSignIn } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
@@ -13,6 +16,8 @@ const Register = () => {
 
   const [createUserWithEmailAndPassword, user, loading] =
     useCreateUserWithEmailAndPassword(auth);
+
+  const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
 
   const handleEmailBlur = (event) => {
     setEmail(event.target.value);
@@ -38,7 +43,7 @@ const Register = () => {
     createUserWithEmailAndPassword(email, password);
   };
 
-  if (loading) {
+  if (loading || loading1) {
     return (
       <div>
         <h1
@@ -57,7 +62,7 @@ const Register = () => {
       </div>
     );
   }
-  if (user) {
+  if (user || user1) {
     navigate("/");
   }
 
@@ -107,15 +112,27 @@ const Register = () => {
 
         <p>
           Already have an account?{" "}
-          <Link className="form-link" to="/login">
+          <Link className="text-decoration-none fw-bold" to="/login">
             Login
           </Link>
         </p>
-        <p style={{ color: "red" }}>{error}</p>
+        <p style={{ color: "red" }}>{error || error1}</p>
         <button type="submit" className="btn btn-primary">
           Register
         </button>
       </form>
+      <div className="d-flex align-items-center justify-content-center w-50 mx-auto">
+        <div style={{ height: "1px" }} className="bg-dark w-25"></div>
+        <h5>OR</h5>
+        <div style={{ height: "1px" }} className="bg-dark w-25"></div>
+      </div>
+      <button
+        onClick={() => signInWithGoogle()}
+        className="btn btn-primary "
+        style={{ marginBottom: "25px", marginTop: "10px" }}
+      >
+        <FontAwesomeIcon icon={faSignIn}></FontAwesomeIcon> Continue With Google
+      </button>
     </div>
   );
 };
