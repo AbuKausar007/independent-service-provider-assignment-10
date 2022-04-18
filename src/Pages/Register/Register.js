@@ -15,7 +15,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
 
@@ -42,6 +42,15 @@ const Register = () => {
     }
     createUserWithEmailAndPassword(email, password);
   };
+
+  let errorElement;
+  if (error1) {
+    errorElement = (
+      <div>
+        <p className="text-danger"> {error1.message}</p>
+      </div>
+    );
+  }
 
   if (loading || loading1) {
     return (
@@ -83,6 +92,7 @@ const Register = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Your Email"
+            required
           />
         </div>
         <div className="mb-3">
@@ -95,6 +105,7 @@ const Register = () => {
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
+            required
           />
         </div>
         <div className="mb-3">
@@ -107,6 +118,7 @@ const Register = () => {
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Confirm Password"
+            required
           />
         </div>
 
@@ -116,11 +128,12 @@ const Register = () => {
             Login
           </Link>
         </p>
-        <p style={{ color: "red" }}>{error || error1}</p>
+        <p style={{ color: "red" }}>{error}</p>
         <button type="submit" className="btn btn-primary">
           Register
         </button>
       </form>
+      {errorElement}
       <div className="d-flex align-items-center justify-content-center w-50 mx-auto">
         <div style={{ height: "1px" }} className="bg-dark w-25"></div>
         <h5>OR</h5>

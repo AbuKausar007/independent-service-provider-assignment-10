@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const SingleService = ({ service }) => {
-  const { name, price, description, imageURL } = service;
+  const { _id, name, price, description, imageURL } = service;
   const navigate = useNavigate();
-  const navigateCheckOut = () => {
-    navigate("/checkout");
+  const navigateToServices = (key) => {
+    navigate(`/services/${key}`);
   };
   return (
     <div>
@@ -15,7 +15,10 @@ const SingleService = ({ service }) => {
 
         <h4 className="fw-bold pt-2">{price}</h4>
         <p className=" text-center pt-2">{description}</p>
-        <button onClick={navigateCheckOut} className="btn btn-primary">
+        <button
+          onClick={() => navigateToServices(_id)}
+          className="btn btn-primary"
+        >
           Book Now
         </button>
       </div>

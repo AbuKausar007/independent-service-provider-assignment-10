@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import auth from "../../firebase.init";
+import { async } from "@firebase/util";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +34,11 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const resetPassword = async () => {
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
+  };
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
 
   let errorElement;
@@ -82,6 +89,7 @@ const Login = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Your Email"
+            required
           />
         </div>
         <div className="mb-3">
@@ -94,6 +102,7 @@ const Login = () => {
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
+            required
           />
         </div>
 
@@ -102,6 +111,17 @@ const Login = () => {
           <Link to="/register" className="text-decoration-none fw-bold">
             {" "}
             Create an account.
+          </Link>
+        </p>
+        <p>
+          Forget Password?
+          <Link
+            to="/register"
+            onClick={resetPassword}
+            className="text-decoration-none text-danger fw-bold"
+          >
+            {" "}
+            Reset Password.
           </Link>
         </p>
 

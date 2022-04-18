@@ -1,6 +1,6 @@
 [
   {
-    "_id": "60d6dfd866b62508b45ee14b",
+    "_id": "1",
     "name": "Athletic Development",
     "description": "Athletic Development package is ideal for motivated high school, college or adult players looking for a porgram made for their specific goals.",
     "price" : " $300/4 WEEKS (MIN 12 WEEKS)",
@@ -8,7 +8,7 @@
     "imageURL": "https://cdn-icons-png.flaticon.com/512/2936/2936902.png"
   },
   {
-    "_id": "60d6e01966b62508b45ee14c",
+    "_id": "2",
     "name": "Pro Boxing",
     "description": "Pro Boxing package is one of the most popular pacakge. I will teach how to fight in a professional match and strategy for how to win easily.",
     "price" : " $450/4 WEEKS (MIN 16 WEEKS)",
@@ -16,7 +16,7 @@
     "imageURL": " https://cdn-icons-png.flaticon.com/512/2936/2936860.png"
   },
   {
-    "_id": "60d728cf66b62508b45ee14d",
+    "_id": "3",
     "name": "Increase Strength",
     "description": "Increase Strength package will tech you how to gain a muscular body in a proper way and increase your strength day by day. It's like magic.",
     "price" : " $600/4 WEEKS (MIN 20 WEEKS)",
