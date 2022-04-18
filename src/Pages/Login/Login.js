@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import auth from "../../firebase.init";
-import { async } from "@firebase/util";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,10 +36,16 @@ const Login = () => {
   };
 
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+
   const resetPassword = async () => {
-    await sendPasswordResetEmail(email);
-    alert("Sent email");
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email.");
+    } else {
+      toast("Please enter your email address.");
+    }
   };
+
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
 
   let errorElement;
@@ -114,20 +121,20 @@ const Login = () => {
         </p>
         <p>
           Forget Password?
-          <Link
-            to="/register"
+          <button
+            className=" btn btn-link text-decoration-none text-danger fw-bold"
             onClick={resetPassword}
-            className="text-decoration-none text-danger fw-bold"
           >
             {" "}
             Reset Password.
-          </Link>
+          </button>
         </p>
 
         <button type="submit" className="btn btn-primary">
           Login
         </button>
       </form>
+      <ToastContainer />
       <p>{errorElement}</p>
       <div className="d-flex align-items-center justify-content-center w-50 mx-auto">
         <div style={{ height: "1px" }} className="bg-dark w-25"></div>
