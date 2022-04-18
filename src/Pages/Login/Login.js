@@ -34,6 +34,18 @@ const Login = () => {
 
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
 
+  let errorElement;
+  if (error || error1) {
+    errorElement = (
+      <div>
+        <p className="text-danger">
+          {" "}
+          {error?.message} {error1?.message}
+        </p>
+      </div>
+    );
+  }
+
   if (loading || loading1) {
     return (
       <h1
@@ -52,7 +64,8 @@ const Login = () => {
   }
 
   if (user || user1) {
-    navigate(from, { replace: true });
+    navigate("/");
+    // navigate(from, { replace: true });
   }
 
   return (
@@ -91,16 +104,18 @@ const Login = () => {
             Create an account.
           </Link>
         </p>
-        <p style={{ color: "red" }}>{error || error1}</p>
+
         <button type="submit" className="btn btn-primary">
           Login
         </button>
       </form>
+      <p>{errorElement}</p>
       <div className="d-flex align-items-center justify-content-center w-50 mx-auto">
         <div style={{ height: "1px" }} className="bg-dark w-25"></div>
         <h5>OR</h5>
         <div style={{ height: "1px" }} className="bg-dark w-25"></div>
       </div>
+
       <button
         onClick={() => signInWithGoogle()}
         className="btn btn-primary"
