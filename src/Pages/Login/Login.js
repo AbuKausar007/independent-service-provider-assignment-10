@@ -71,8 +71,7 @@ const Login = () => {
   }
 
   if (user || user1) {
-    navigate("/");
-    // navigate(from, { replace: true });
+    navigate(from, { replace: true });
   }
 
   return (

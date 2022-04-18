@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 const ServiceDetails = () => {
   const { key } = useParams();
+
   return (
     <div>
       <h1 className="py-5">This is servie details about {key} </h1>
