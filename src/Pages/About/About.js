@@ -4,10 +4,10 @@ import me from "../../images/me.jpeg";
 const About = () => {
   return (
     <div>
-      <article className="container">
-        <h1 className="fw-bold pt-5 pb-3">A Short Brief About My Goal.</h1>
+      <article className="container shadow-lg my-5">
+        <h1 className="fw-bold pt-5 px-2 pb-5">A Short Brief About My Goal.</h1>
         <img src={me} alt="" />
-        <p className="text-start h2 py-5">
+        <p className="text-start h2 px-2 py-5">
           My goal is to become a MERN Stack Developer. But at first, I didn't
           know what is development. I was confused how to start my journey. I
           went some institute to learn something to gain some skill .But from
@@ -17,7 +17,7 @@ const About = () => {
           planning from where I can get a guide line to start my journey as a
           web developer.
         </p>
-        <p className="text-start h2 pb-5">
+        <p className="text-start h2 px-2 pb-5">
           From the very begining I was working hard to acheive my goal. But our
           life don't go with our plan. There are obstacle in every step. As a
           only son I have to take care about my family. Those who maintain their
