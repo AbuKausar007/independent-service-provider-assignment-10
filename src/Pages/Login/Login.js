@@ -34,7 +34,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const resetPassword = async () => {
     await sendPasswordResetEmail(email);
     alert("Sent email");
