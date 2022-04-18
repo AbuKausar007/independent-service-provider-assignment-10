@@ -5,7 +5,6 @@ import {
   faBed,
   faChessKnight,
   faHeart,
-  faHeartPulse,
   faPerson,
   faSmile,
 } from "@fortawesome/free-solid-svg-icons";

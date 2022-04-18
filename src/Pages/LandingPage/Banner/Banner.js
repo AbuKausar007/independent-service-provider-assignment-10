@@ -16,7 +16,7 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption>
-            <h1 className="fw-bold">Hi! I'm Alex Smith.</h1>
+            <h1 className="fw-bold">Hi! I'm Arvy.</h1>
             <h1 className="fw-bold">
               Your New Personal Coach For Better Life.
             </h1>
@@ -28,7 +28,7 @@ const Banner = () => {
           <img className="d-block w-100" src={banner2} alt="Second slide" />
 
           <Carousel.Caption>
-            <h1 className="fw-bold">Hi! I'm Alex Smith.</h1>
+            <h1 className="fw-bold">Hi! I'm Arvy.</h1>
             <h1 className="fw-bold">
               Your New Personal Coach For Better Life.
             </h1>
@@ -40,7 +40,7 @@ const Banner = () => {
           <img className="d-block w-100" src={banner3} alt="Third slide" />
 
           <Carousel.Caption>
-            <h1 className="fw-bold">Hi! I'm Alex Smith.</h1>
+            <h1 className="fw-bold">Hi! I'm Arvy.</h1>
             <h1 className="fw-bold">
               Your New Personal Coach For Better Life.
             </h1>
